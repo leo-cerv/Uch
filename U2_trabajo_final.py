@@ -69,6 +69,60 @@ resultado = np.random.choice(strings_filtrados['NASDAQ'])
 print("La acción que te corresponde es: "+ resultado)
 
 
+
+
+#########################################
+# Copia de la función_my_nasdaq_symbols #
+#########################################
+
+# función para hacer reemplazar get_nasdaq_symbols()
+
+def get_my_nasdaq_symbols(search = None):
+    
+    url = "https://raw.githubusercontent.com/leo-cerv/Uch/main/NASDAQ.csv"
+    NASDAQ = pd.read_csv(url)
+    
+    # Filto
+    letra_filtro = search
+    strings_filtrados = NASDAQ[NASDAQ['NASDAQ'].str.startswith(letra_filtro)]
+
+    return(strings_filtrados)
+    
+# Test 
+get_my_nasdaq_symbols(search = "E")
+get_my_nasdaq_symbols(search = "Z")
+
+
+
+# hacer función con resultado random 
+def get_my_nasdaq_random(search = None):
+
+   url = "https://raw.githubusercontent.com/leo-cerv/Uch/main/NASDAQ.csv"
+   NASDAQ = pd.read_csv(url)
+
+   # Filtro
+   letra_filtro = search
+   strings_filtrados = NASDAQ[NASDAQ['NASDAQ'].str.startswith(letra_filtro)]
+
+   # valor random
+   resultado = np.random.choice(strings_filtrados['NASDAQ'])
+   
+   return print("La acción que te corresponde es: "+ resultado)
+
+# Test
+get_my_nasdaq_random(search = "E")
+get_my_nasdaq_random(search = "A")
+
+
+
+
+
+
+
+
+
+
+
 #%%
 # =============================================================================
 # Pregunta 2
